@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+
+    <body>
+        <h2>Here is the list of people attending the party </h2>
+    <table style="border:1px solid black;border-collapse:collapse;">
+        <tr>
+            <th style="border:1px solid black;">Name</th>
+            <th style="border:1px solid black;">Email</th>
+            <th style="border:1px solid black;">Phone</th>
+        </tr>
+        @foreach (GuestResponse inviter in Repository.Responses)
+        {
+            if(inviter.WillAttend == true)
+            {
+                <tr>
+                    <td style="border:1px solid black;">@inviter.Name</td>
+                    <td style="border:1px solid black;">@inviter.Email</td>
+                    <td style="border:1px solid black;">@inviter.Phone</td>
+                </tr>
+            }
+        }
+    </table>
+    </body>
+</html>
